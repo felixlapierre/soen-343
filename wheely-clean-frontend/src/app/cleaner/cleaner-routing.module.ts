@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CleanerComponent } from './cleaner/cleaner.component';
+import { CleanerRequestListComponent } from './pages/cleaner-request-list/cleaner-request-list.component';
 
 
 
 const routes: Routes = [
-    { path: 'cleaner', component: CleanerComponent }
+    { path: 'cleaner', component: CleanerRequestListComponent }
   ];
 @NgModule({
   imports: [  RouterModule.forChild(routes)
