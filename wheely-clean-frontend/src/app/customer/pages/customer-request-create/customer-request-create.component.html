@@ -1,1 +1,30 @@
-<p>customer-request-create works!</p>
+<mat-toolbar color="grey">
+    <mat-toolbar-row>
+        <button mat-icon-button color="secondary" (click)="closeCreateRequest()"><mat-icon>close</mat-icon></button>
+        <span style="padding-left:10px;">Create Wash Request</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="form-container">
+    <mat-label>Car Information</mat-label>
+    <mat-form-field>
+        <input matInput placeholder="Make">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Model">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Color">
+    </mat-form-field>
+    <br />
+    <mat-label>Wash Information</mat-label>
+    <mat-form-field>
+        <input matInput placeholder="Type">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Preferred Date and Time">
+    </mat-form-field>
+    <br />
+    <mat-label>Location</mat-label>
+
+</div>
