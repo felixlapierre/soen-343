@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CleanerComponent } from './cleaner/cleaner.component';
 import { CleanerRoutingModule } from './cleaner-routing.module';
+import { CleanerRequestListComponent } from './pages/cleaner-request-list/cleaner-request-list.component';
 
 
 
 @NgModule({
-  declarations: [CleanerComponent],
+  declarations: [ CleanerRequestListComponent],
   imports: [
     CommonModule,
     CleanerRoutingModule
   ],
-  exports: [CleanerComponent ]
+  exports: [ ]
 
 })
 export class CleanerModule { }

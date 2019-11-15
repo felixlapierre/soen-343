@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CleanerComponent } from './cleaner.component';
+import { CleanerRequestListComponent } from './cleaner-request-list.component';
 
-describe('CleanerComponent', () => {
-  let component: CleanerComponent;
-  let fixture: ComponentFixture<CleanerComponent>;
+describe('CleanerRequestListComponent', () => {
+  let component: CleanerRequestListComponent;
+  let fixture: ComponentFixture<CleanerRequestListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CleanerComponent ]
+      declarations: [ CleanerRequestListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CleanerComponent);
+    fixture = TestBed.createComponent(CleanerRequestListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
