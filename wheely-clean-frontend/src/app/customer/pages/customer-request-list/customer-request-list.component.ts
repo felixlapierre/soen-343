@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WashRequest, RequestStatus, WashType } from 'src/app/core/models/wash-request';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-customer-request-list',
   templateUrl: './customer-request-list.component.html',
@@ -50,9 +52,13 @@ export class CustomerRequestListComponent implements OnInit {
     }
   }];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  openCreateRequest(){
+    this.router.navigate(['/create-request']);
   }
 
 }
