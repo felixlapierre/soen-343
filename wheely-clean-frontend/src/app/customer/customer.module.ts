@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomerComponent } from './customer/customer.component';
-import { Routes, RouterModule } from '@angular/router';
 import { CustomerRoutingModule } from './customer-routing.module';
+import { CustomerRequestListComponent } from './pages/customer-request-list/customer-request-list.component';
 
 
 
 @NgModule({
-  declarations: [CustomerComponent],
+  declarations: [CustomerRequestListComponent],
   imports: [
     CommonModule,
     CustomerRoutingModule  ],
-  exports: [CustomerComponent ]
+  exports: [CustomerRequestListComponent ]
 })
 export class CustomerModule { }
