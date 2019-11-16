@@ -1,3 +1,4 @@
 /WheelyCleanBackend/.gradle
 /WheelyCleanBackend/.nb-gradle/
 /WheelyCleanBackend/build/
+/wheely-clean-frontend/src/env.js
