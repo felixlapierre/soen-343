@@ -7,3 +7,12 @@
 .form-container > * {
 width: 100%;
 }
+
+.submit-buttons{
+  display: flex;
+  justify-content: flex-end;
+
+  button{
+      width: 100px;
+  }
+}

@@ -52,7 +52,7 @@ export class CustomerRequestCreateComponent implements OnInit {
     this.markerLongitude = lng;
   }
 
-  printState(){
+  submit(){
     console.log(this.make);
     console.log(this.model);
     console.log(this.color);
@@ -62,8 +62,7 @@ export class CustomerRequestCreateComponent implements OnInit {
 
     console.log(this.markerLatitude);
     console.log(this.markerLongitude);
-
-
+    console.log('submit! needs connection to backend');
   }
 
 

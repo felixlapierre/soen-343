@@ -47,5 +47,10 @@
         </agm-marker>
     </agm-map>
   <mat-hint style="font-size: 14px;">Note: The map has an "error" prompt because it is in development mode.</mat-hint>
-  <button (click)="printState()">Print state</button>
+  <br />
+  <div class="submit-buttons">
+    <button mat-button style="color: red;" (click)="closeCreateRequest()" buttons>Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" buttons>Submit</button>
+  </div>
+
 </div>
