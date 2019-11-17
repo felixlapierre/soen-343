@@ -1,0 +1,46 @@
+<mat-toolbar color="grey">
+    <mat-toolbar-row>
+        <button mat-icon-button color="secondary" (click)="closeCreateRequest()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <span style="padding-left:10px;">Wash Information - ID: {{request.id}}</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="container">
+
+    <p>Status</p>
+    <mat-form-field>
+        <mat-select [(value)]="request.status" #selectStatus>
+            <mat-option *ngFor="let status of statuses" [value]="status.value">
+                {{status.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <h3>Car Information</h3>
+    <div class="carInformation">
+        <div class="make">
+            <p>Make</p>
+            <span>{{request.carDetails.make}}</span>
+        </div>
+        <div class="color">
+            <p>Color</p>
+            <span>{{request.carDetails.color}}</span>
+        </div>
+        <div class="model">
+            <p>Model</p>
+            <span>{{request.carDetails.model}}</span>
+        </div>
+
+    </div>
+    <div class="washInformation">
+        <h3>Wash Information</h3>
+        <div class="type">
+            <p>Type</p>
+            <span>{{request.type}}</span>
+        </div>
+        <div class="date">
+            <p>Preferred Date and Time</p>
+            <span>{{request.date}}</span>
+        </div>
+    </div>
+</div>

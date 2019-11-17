@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WashRequest } from 'src/app/core/models/wash-request';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-item',
@@ -9,9 +10,11 @@ import { WashRequest } from 'src/app/core/models/wash-request';
 export class ListItemComponent implements OnInit {
 
   @Input() request: WashRequest;
+  @Input() userType: string;
   icon: string;
   color: string;
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.generateIconName();
@@ -43,6 +46,11 @@ export class ListItemComponent implements OnInit {
       this.color = 'green';
     }
 
+  }
+  onClick(){
+    if (this.userType === 'cleaner') {
+      this.router.navigateByUrl('/cleaner/request-details', { state: { request: this.request } });
+    }
   }
 
 }
