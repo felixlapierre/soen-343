@@ -1,0 +1,56 @@
+<mat-toolbar color="grey">
+    <mat-toolbar-row>
+        <button mat-icon-button color="secondary" (click)="closeCreateRequest()"><mat-icon>close</mat-icon></button>
+        <span style="padding-left:10px;">Create Wash Request</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="form-container">
+    <mat-label>Car Information</mat-label>
+    <mat-form-field>
+        <input matInput placeholder="Make" [(ngModel)]="make">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Model" [(ngModel)]="model">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Color" [(ngModel)]="color">
+    </mat-form-field>
+    <br />
+
+    <mat-label>Wash Information</mat-label>
+    <mat-form-field>
+        <mat-label>Wash Type</mat-label>
+        <mat-select [(ngModel)]="type">
+        <mat-option *ngFor="let type of typeKeys()" [value]="type">
+            {{type}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-label>Wash Date and Time</mat-label>
+
+    <fd-date-picker [type]="'single'" [(ngModel)]="date"></fd-date-picker>
+    <br />
+    <fd-time-picker [(ngModel)]="time"></fd-time-picker>
+    <br />
+
+    <mat-label>Location</mat-label>
+    <br />
+    <agm-map style="height: 300px;" [latitude]='defaultLatitude' [longitude]='defaultLongitude' [zoom]="12"
+        (mapClick)="addMarker($event.coords.lat, $event.coords.lng)"
+        [mapTypeId]='mapType'>
+        <agm-marker
+            [latitude]="markerLatitude"
+            [longitude]="markerLongitude"
+        >
+        </agm-marker>
+    </agm-map>
+  <mat-hint style="font-size: 14px;">Note: The map has an "error" prompt because it is in development mode.</mat-hint>
+  <br />
+  <div class="submit-buttons">
+    <button mat-button style="color: red;" (click)="closeCreateRequest()" buttons>Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" buttons>Submit</button>
+  </div>
+
+</div>
