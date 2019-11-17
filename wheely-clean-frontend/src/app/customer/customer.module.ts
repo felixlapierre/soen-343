@@ -21,9 +21,10 @@ import { IconModule } from '@fundamental-ngx/core';
 import { CustomerRequestCreateComponent } from './pages/customer-request-create/customer-request-create.component';
 
 import { APIKey } from '../../env.js';
+import { CustomerWashDetailsComponent } from './pages/customer-wash-details/customer-wash-details.component';
 
 @NgModule({
-  declarations: [CustomerRequestListComponent, ListItemComponent, CustomerRequestCreateComponent],
+  declarations: [CustomerRequestListComponent, ListItemComponent, CustomerRequestCreateComponent, CustomerWashDetailsComponent],
   imports: [
     CommonModule,
     CustomerRoutingModule,

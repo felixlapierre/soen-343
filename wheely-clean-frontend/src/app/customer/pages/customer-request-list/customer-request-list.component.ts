@@ -58,7 +58,11 @@ export class CustomerRequestListComponent implements OnInit {
   }
 
   openCreateRequest(){
-    this.router.navigate(['/create-request']);
+    this.router.navigate(['/customer/create-request']);
+  }
+
+  openWashDetails(washId){
+    this.router.navigate([`/customer/create-request/${washId}`]);
   }
 
 }
