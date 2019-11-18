@@ -1,6 +1,6 @@
 <mat-toolbar color="grey">
     <mat-toolbar-row>
-        <button mat-icon-button color="secondary" (click)="closeCreateRequest()">
+        <button mat-icon-button color="secondary" (click)="closeWashDetails()">
             <mat-icon>close</mat-icon>
         </button>
         <span style="padding-left:10px;">Wash Information - ID: {{request.id}}</span>
@@ -18,29 +18,28 @@
     </mat-form-field>
     <h3>Car Information</h3>
     <div class="carInformation">
-        <div class="make">
+        <div class="info">
             <p>Make</p>
             <span>{{request.carDetails.make}}</span>
         </div>
-        <div class="color">
+        <div class="info">
             <p>Color</p>
             <span>{{request.carDetails.color}}</span>
         </div>
-        <div class="model">
+        <div class="info">
             <p>Model</p>
             <span>{{request.carDetails.model}}</span>
         </div>
-
     </div>
+    <h3>Wash Information</h3>
     <div class="washInformation">
-        <h3>Wash Information</h3>
-        <div class="type">
+        <div class="info">
             <p>Type</p>
-            <span>{{request.type}}</span>
+            <span>{{request.washType}}</span>
         </div>
-        <div class="date">
+        <div class="info">
             <p>Preferred Date and Time</p>
-            <span>{{request.date}}</span>
+            <span>{{request.time}}</span>
         </div>
     </div>
 </div>

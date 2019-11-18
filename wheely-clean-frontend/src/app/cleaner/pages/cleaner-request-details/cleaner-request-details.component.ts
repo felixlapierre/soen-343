@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WashRequest } from 'src/app/core/models/wash-request';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cleaner-request-details',
@@ -13,14 +14,18 @@ export class CleanerRequestDetailsComponent implements OnInit {
 
   request: WashRequest;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.request = window.history.state.request;
     console.log(this.request);
+    // this.route.params.subscribe(params => console.log(params));
 
 
 
+  }
+  closeWashDetails(){
+    this.router.navigate(['/cleaner']);
   }
 
 }

@@ -4,7 +4,12 @@
     padding: 20px 30px;
     .carInformation {
         display: flex;
-        flex-direction: row;
-        flex-basis: 48%;
+        flex-flow: row wrap;
+
+        .info{
+            flex-direction: column;
+            flex-basis: 48%;
+
+        }
     }
 }

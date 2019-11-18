@@ -49,7 +49,9 @@ export class ListItemComponent implements OnInit {
   }
   onClick(){
     if (this.userType === 'cleaner') {
-      this.router.navigateByUrl('/cleaner/request-details', { state: { request: this.request } });
+      this.router.navigateByUrl('/cleaner/wash-details', { state: { request: this.request } });
+      // this.router.navigate(['/cleaner/wash-details', this.request.id] );
+
     }
   }
 
