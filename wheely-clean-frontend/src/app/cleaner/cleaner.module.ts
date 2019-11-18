@@ -11,6 +11,10 @@ import {MatSelectModule} from '@angular/material/select';
 import { CleanerRequestDetailsComponent } from './pages/cleaner-request-details/cleaner-request-details.component';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { AgmCoreModule } from '@agm/core';
+import { APIKey } from '../../env.js';
+
+
 
 @NgModule({
   declarations: [ CleanerRequestListComponent, CleanerRequestDetailsComponent],
@@ -24,7 +28,11 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AgmCoreModule.forRoot({
+      apiKey: APIKey
+
+    })
   ],
   exports: [ ]
 

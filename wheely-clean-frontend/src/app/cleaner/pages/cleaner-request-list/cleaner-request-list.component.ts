@@ -11,7 +11,7 @@ export class CleanerRequestListComponent implements OnInit {
     id: '3123123',
     customerAccountId: '3424234234234',
     status: RequestStatus.ACCEPTED,
-    washType: WashType.BRONZE,
+    washType: WashType.GOLD,
     time: new Date(),
     carDetails: {
       category: 'Sedan',
@@ -39,7 +39,7 @@ export class CleanerRequestListComponent implements OnInit {
     id: '3123123',
     customerAccountId: '3424234234234',
     status: RequestStatus.EN_ROUTE,
-    washType: WashType.BRONZE,
+    washType: WashType.SILVER,
     time: new Date(),
     carDetails: {
       category: 'Sedan',

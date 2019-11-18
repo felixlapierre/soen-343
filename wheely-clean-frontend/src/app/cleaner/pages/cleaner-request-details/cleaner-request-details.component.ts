@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WashRequest } from 'src/app/core/models/wash-request';
+import { WashRequest, WashType, RequestStatus } from 'src/app/core/models/wash-request';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,19 +13,25 @@ export class CleanerRequestDetailsComponent implements OnInit {
   { value: 'completed', viewValue: 'Completed' }];
 
   request: WashRequest;
+  defaultLatitude  = 45.4963778;
+  defaultLongitude  = -73.5779553;
+  mapType  = 'satellite';
+  status: RequestStatus;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.request = window.history.state.request;
     console.log(this.request);
+    this.status = this.request.status;
     // this.route.params.subscribe(params => console.log(params));
-
-
-
   }
   closeWashDetails(){
     this.router.navigate(['/cleaner']);
+  }
+  save(){
+    console.log(this.status);
+    this.closeWashDetails();
   }
 
 }
