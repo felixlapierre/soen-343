@@ -1,0 +1,10 @@
+<span>Cleaners Available</span>
+<mat-radio-group>
+    <mat-radio-button *ngFor="let cleaner of cleanerList" class="example-radio-button" [value]="cleaner">
+        {{cleaner}}
+    </mat-radio-button>
+</mat-radio-group>
+<div class="button-container">
+    <button mat-button color="warn" (click)="close()" buttons>Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" buttons>Assign</button>
+</div>
