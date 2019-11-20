@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { WashRequest, WashStatus, WashType } from 'src/app/core/models/wash-request';
+import { Cleaner } from 'src/app/core/models/cleaner';
+import { HttpHeaders } from '@angular/common/http';
+import { CleanerHttpClientService } from 'src/app/core/services/cleaner-http-client.service';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
+import { RequestHttpClientService } from 'src/app/core/services/request-http-client.service';
+
 
 @Component({
   selector: 'app-admin-request-list',
@@ -7,9 +14,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminRequestListComponent implements OnInit {
 
-  constructor() { }
+  cleanerList: Array<Cleaner>;
+  requestList: Array<WashRequest>;
+  constructor(private cleanerService: CleanerHttpClientService, private requestService: RequestHttpClientService) { }
 
   ngOnInit() {
+    this.getCleanerList();
+    this.getRequestList();
+  }
+
+  getCleanerList() {
+    this.cleanerService.getCleaners().subscribe((res) => {
+      console.log(res);
+      this.cleanerList = res;
+    });
+  }
+  getRequestList(){
+    this.requestService.getRequests().subscribe((res) => {
+      this.requestList = res;
+    });
+  }
+  updateWash($event: any){
+    console.log($event);
+    this.requestService.updateRequest($event).subscribe((res) => {
+      this.getRequestList();
+    });
   }
 
 }
