@@ -9,15 +9,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AgmCoreModule } from '@agm/core';
 
 import { CustomerModule } from './customer/customer.module';
 import { CleanerModule } from './cleaner/cleaner.module';
 import { AdminModule } from './admin/admin.module';
 
 import { HomeComponent } from './home/home.component';
-
-
-
 
 @NgModule({
   declarations: [
@@ -33,7 +32,8 @@ import { HomeComponent } from './home/home.component';
     MatCardModule,
     CustomerModule,
     CleanerModule,
-    AdminModule
+    AdminModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

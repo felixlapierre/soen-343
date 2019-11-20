@@ -1,0 +1,18 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+.form-container > * {
+width: 100%;
+}
+
+.submit-buttons{
+  display: flex;
+  justify-content: flex-end;
+
+  button{
+      width: 100px;
+  }
+}
