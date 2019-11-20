@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WashRequest, RequestStatus, WashType } from 'src/app/core/models/wash-request';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-request-list',
@@ -7,9 +9,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerRequestListComponent implements OnInit {
 
-  constructor() { }
+  requestList: Array<WashRequest> = [{
+    id: '3123123123',
+    customerAccountId: '3424234234234',
+    status: RequestStatus.ACCEPTED,
+    washType: WashType.BRONZE,
+    time: new Date(),
+    carDetails: {
+      category: 'Sedan',
+      color: 'blue',
+      make: 'Toyota',
+      model: 'Corolla',
+      plateNumber: 'HIHIHI'
+    }
+  },
+  {
+    id: '3123123123',
+    customerAccountId: '3424234234234',
+    status: RequestStatus.CANCELLED,
+    washType: WashType.BRONZE,
+    time: new Date(),
+    carDetails: {
+      category: 'Sedan',
+      color: 'blue',
+      make: 'Toyota',
+      model: 'Corolla',
+      plateNumber: 'HIHIHI'
+    }
+  },
+  {
+    id: '3123123123',
+    customerAccountId: '3424234234234',
+    status: RequestStatus.EN_ROUTE,
+    washType: WashType.BRONZE,
+    time: new Date(),
+    carDetails: {
+      category: 'Sedan',
+      color: 'blue',
+      make: 'Toyota',
+      model: 'Corolla',
+      plateNumber: 'HIHIHI'
+    }
+  }];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  openCreateRequest(){
+    this.router.navigate(['/create-request']);
   }
 
 }

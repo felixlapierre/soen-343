@@ -16,10 +16,10 @@ export enum RequestStatus {
     COMPLETED = 'Completed',
 }
 export enum WashType {
-   BRONZE = 'Bronze',
-   GOLD = 'Gold',
-   PLATINUM = 'Platinum',
-   SILVER = 'Silver'
+    PLATINUM = 'Platinum',
+    GOLD = 'Gold',
+    SILVER = 'Silver',
+    BRONZE = 'Bronze',
 }
 export interface CarDetails {
     make: string;

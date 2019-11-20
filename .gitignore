@@ -1,3 +1,8 @@
 /WheelyCleanBackend/.gradle
 /WheelyCleanBackend/.nb-gradle/
 /WheelyCleanBackend/build/
+/wheely-clean-frontend/src/env.js
+WheelyCleanBackend/WheelyCleanBackend.iml
+WheelyCleanBackend/local.properties
+/WheelyCleanBackend/.idea/
+/WheelyCleanBackend/src/main/resources/application.properties
