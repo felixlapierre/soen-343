@@ -65,7 +65,8 @@ requestList: Array<WashRequest>;
     this.router.navigate(['/create-request']);
   }
   getRequests(){
-    this.customerService.getCustomerRequests('3').subscribe((res) => {
+    this.customerService.getCustomerRequests('2').subscribe((res) => {
+      console.log(res);
       this.requestList = res;
       console.log(this.requestList);
       

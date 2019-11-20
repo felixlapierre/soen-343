@@ -12,7 +12,7 @@ export class RequestHttpClientService {
   constructor(private http: HttpClient) { }
 
   createRequest(request: WashRequest){
-    return this.http.post(this.configUrl, request);
+    return this.http.post<WashRequest>(this.configUrl, request);
   }
   getRequests(){
     return this.http.get<Array<WashRequest>>(`${this.configUrl}/all`);

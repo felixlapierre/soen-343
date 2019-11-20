@@ -35,7 +35,7 @@ export class CustomerRequestCreateComponent implements OnInit {
     return keys;
   }
   date = FdDate.getToday();
-  time: Object = {
+  time: any = {
     hour: 12,
     minute: 0,
     second: 0
@@ -56,6 +56,13 @@ export class CustomerRequestCreateComponent implements OnInit {
   }
 
   submit() {
+
+    const formattedH = ("0" + this.time.hour).slice(-2);
+    const formattedM = ("0" + this.time.minute).slice(-2);
+    const formattedS = ("0" + this.time.second).slice(-2);
+
+    const dateTime = `${this.date.year}-${this.date.month}-${this.date.day}T${formattedH}:${formattedM}:${formattedS}`;
+
     const request: WashRequest = {
       carDetails: {
         category: this.category,
@@ -64,17 +71,21 @@ export class CustomerRequestCreateComponent implements OnInit {
         model: this.model,
         plateNumber: this.plateNumber
       },
-      customerAccountId: '3',
+      customerAccountId: '2', // hardcode, this would be the id of the user if we had auth and could get current user
       location: {
         latitude: this.markerLatitude,
         longitude: this.markerLongitude
       },
       status: WashStatus.pending,
       washType: this.type,
-      time: new Date()
+      time: dateTime
     };
     console.log(request);
-    console.log('submit! needs connection to backend');
+
+
+    this.requestService.createRequest(request).subscribe((res) => {
+      this.router.navigate(['/customer']);
+    });
   }
 
 

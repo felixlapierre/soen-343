@@ -3,7 +3,7 @@ export interface WashRequest {
     customerAccountId: string;
     status: WashStatus;
     washType: WashType;
-    time: Date;
+    time: any;
     cleanerAccountId?: string;
     carDetails: CarDetails;
     location: Location;

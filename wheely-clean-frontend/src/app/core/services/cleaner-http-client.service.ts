@@ -9,6 +9,8 @@ import { WashRequest } from '../models/wash-request';
 export class CleanerHttpClientService {
 
   configUrl = 'http://localhost:8080/cleaner';
+  requestUrl = 'http://localhost:8080/request';
+
   constructor(private http: HttpClient) { }
 
   getCleaners() {
@@ -21,5 +23,9 @@ export class CleanerHttpClientService {
   getCleanerRequests(id: string){
     return this.http.get<Array<WashRequest>>(`${this.configUrl}/requests`, { params: new HttpParams().set('id', id)
   });
+  }
+  putCleanerRequest(request : WashRequest){
+    console.log(request);
+    return this.http.put<WashRequest>(this.requestUrl, request);
   }
 }

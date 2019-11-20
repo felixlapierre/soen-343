@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { WashRequest } from 'src/app/core/models/wash-request';
+import { WashRequest, WashStatus } from 'src/app/core/models/wash-request';
 import { MatDialog } from '@angular/material/dialog';
 import { AssignWashDialogComponent } from '../assign-wash-dialog/assign-wash-dialog.component';
 import { Cleaner } from 'src/app/core/models/cleaner';
@@ -71,6 +71,7 @@ export class AdminListItemComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.request.cleanerAccountId = result.id;
+      this.request.status = WashStatus.accepted;
       this.updateWash.emit(this.request);
     });
   }

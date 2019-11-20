@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WashRequest, WashType, WashStatus } from 'src/app/core/models/wash-request';
+import { CleanerHttpClientService } from 'src/app/core/services/cleaner-http-client.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -10,7 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CleanerRequestDetailsComponent implements OnInit {
   statuses = [{ value: 'inProgress', viewValue: 'In Progress' },
   { value: 'enRoute', viewValue: 'En Route' },
-  { value: 'completed', viewValue: 'Completed' }];
+  { value: 'completed', viewValue: 'Completed' },
+  { value: 'accepted', viewValue: 'Accepted' }];
 
   request: WashRequest;
   defaultLatitude  = 45.4963778;
@@ -18,7 +20,7 @@ export class CleanerRequestDetailsComponent implements OnInit {
   mapType  = 'satellite';
   status: WashStatus;
 
-  constructor(private router: Router) { }
+  constructor(private cleanerService : CleanerHttpClientService, private router: Router) { }
 
   ngOnInit() {
     this.request = window.history.state.request;
@@ -29,9 +31,13 @@ export class CleanerRequestDetailsComponent implements OnInit {
   closeWashDetails(){
     this.router.navigate(['/cleaner']);
   }
-  save(){
+  save(request){
     console.log(this.status);
-    this.closeWashDetails();
+    console.log(this.request);
+    this.request.status = this.status;
+    this.cleanerService.putCleanerRequest(this.request).subscribe((res) => {
+      console.log(res);
+      this.closeWashDetails();
+    });
   }
-
 }
