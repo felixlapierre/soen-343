@@ -66,7 +66,7 @@ export class AdminRequestListComponent implements OnInit {
     this.getCleanerList();
   }
 
-  getCleanerList(){
+  getCleanerList() {
     this.cleanerService.getCleaners().subscribe((res) => {
       console.log(res);
       this.cleanerList = res;
