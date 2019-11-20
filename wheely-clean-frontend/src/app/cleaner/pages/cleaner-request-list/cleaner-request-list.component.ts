@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestStatus, WashType, WashRequest } from 'src/app/core/models/wash-request';
+import { WashStatus, WashType, WashRequest } from 'src/app/core/models/wash-request';
 
 @Component({
   selector: 'app-cleaner-request-list',
@@ -10,7 +10,7 @@ export class CleanerRequestListComponent implements OnInit {
   requestList: Array<WashRequest> = [{
     id: '3123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.accepted,
+    status: WashStatus.accepted,
     washType: WashType.gold,
     time: new Date(),
     carDetails: {
@@ -24,7 +24,7 @@ export class CleanerRequestListComponent implements OnInit {
   {
     id: '3123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.cancelled,
+    status: WashStatus.cancelled,
     washType: WashType.bronze,
     time: new Date(),
     carDetails: {
@@ -38,7 +38,7 @@ export class CleanerRequestListComponent implements OnInit {
   {
     id: '3123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.enRoute,
+    status: WashStatus.enRoute,
     washType: WashType.silver,
     time: new Date(),
     carDetails: {

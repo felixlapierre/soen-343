@@ -8,7 +8,6 @@ import { Cleaner } from '../models/cleaner';
 export class CleanerHttpClientService {
 
   configUrl = 'http://localhost:8080/cleaner';
-  data: any;
   constructor(private http: HttpClient) { }
 
   getCleaners() {

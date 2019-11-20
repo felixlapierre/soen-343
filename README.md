@@ -42,6 +42,8 @@ SOEN343 - Software Design 1 - Team Project
 - Install Node.js (comes with npm)
 - To verify that Node.js is installed, open a terminal and enter the command "node -v"
 - To verify that Node.js is installed, open a terminal and enter the command "npm -v"
+- Add a 'env.js' file to the src folder of wheely-clean-frontend folder
+- Ask someone for API key
 ### Starting the server
 - Open a separate terminal in the wheely-clean-frontend folder
 - Enter the command "npm i"

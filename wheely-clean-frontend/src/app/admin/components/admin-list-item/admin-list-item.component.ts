@@ -1,7 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { WashRequest } from 'src/app/core/models/wash-request';
 import { MatDialog } from '@angular/material/dialog';
 import { AssignWashDialogComponent } from '../assign-wash-dialog/assign-wash-dialog.component';
+import { Cleaner } from 'src/app/core/models/cleaner';
+import { RequestHttpClientService } from 'src/app/core/services/request-http-client.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-admin-list-item',
@@ -14,41 +17,51 @@ export class AdminListItemComponent implements OnInit {
   color: string;
   icon: string;
   time: string;
-  cleanerList = ['Thomas Gauvin', 'Lara Tran'];
+  cleanerName: string;
+  @Input() cleanerList: Array<Cleaner>;
+  @Output() updateWash = new EventEmitter();
 
-
-
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private requestService: RequestHttpClientService) { }
 
   ngOnInit() {
     this.generateIconName();
-    this.time = this.request.time.toTimeString().substring(0, 9);
+    this.findCleanerName();
+    // this.time = this.request.time.toTimeString().substring(0, 9);
   }
 
   generateIconName() {
-    if (this.request.status === 'Accepted') {
+    if (this.request.status === 'accepted') {
       this.icon = 'thumb_up';
       this.color = 'pink';
     }
-    if (this.request.status === 'Pending') {
+    if (this.request.status === 'pending') {
       this.icon = 'access_time';
       this.color = 'grey';
     }
-    if (this.request.status === 'En Route') {
+    if (this.request.status === 'enRoute') {
       this.icon = 'directions_car';
       this.color = 'black';
     }
-    if (this.request.status === 'In Progress') {
+    if (this.request.status === 'inProgress') {
       this.icon = 'local_car_wash';
       this.color = 'blue';
     }
-    if (this.request.status === 'Cancelled') {
+    if (this.request.status === 'cancelled') {
       this.icon = 'cancel';
       this.color = 'red';
     }
-    if (this.request.status === 'Completed') {
+    if (this.request.status === 'completed') {
       this.icon = 'check_circle';
       this.color = 'green';
+    }
+  }
+  findCleanerName() {
+    if(this.request.cleanerAccountId !== null){
+      for(let i = 0; i < this.cleanerList.length; i++) {
+        if(this.cleanerList[i].id === this.request.cleanerAccountId){
+          this.cleanerName = this.cleanerList[i].name;
+        }
+      }
     }
   }
   openDialog() {
@@ -57,9 +70,9 @@ export class AdminListItemComponent implements OnInit {
       data: {list: this.cleanerList}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      this.request.cleanerAccountId = result.id;
+      this.updateWash.emit(this.request);
     });
-
   }
 
 }

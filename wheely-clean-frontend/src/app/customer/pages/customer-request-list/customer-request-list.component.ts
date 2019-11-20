@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WashRequest, RequestStatus, WashType } from 'src/app/core/models/wash-request';
+import { WashRequest, WashStatus, WashType } from 'src/app/core/models/wash-request';
 import { Router } from '@angular/router';
+import { CustomerHttpClientService } from 'src/app/core/services/customer-http-client.service';
 
 @Component({
   selector: 'app-customer-request-list',
@@ -9,10 +10,12 @@ import { Router } from '@angular/router';
 })
 export class CustomerRequestListComponent implements OnInit {
 
+
+
   requestList: Array<WashRequest> = [{
     id: '3123123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.accepted,
+    status: WashStatus.accepted,
     washType: WashType.bronze,
     time: new Date(),
     carDetails: {
@@ -26,7 +29,7 @@ export class CustomerRequestListComponent implements OnInit {
   {
     id: '3123123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.cancelled,
+    status: WashStatus.cancelled,
     washType: WashType.bronze,
     time: new Date(),
     carDetails: {
@@ -40,7 +43,7 @@ export class CustomerRequestListComponent implements OnInit {
   {
     id: '3123123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.enRoute,
+    status: WashStatus.enRoute,
     washType: WashType.bronze,
     time: new Date(),
     carDetails: {
@@ -52,13 +55,21 @@ export class CustomerRequestListComponent implements OnInit {
     }
   }];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private customerService: CustomerHttpClientService) { }
 
   ngOnInit() {
+    this.getRequests();
   }
 
   openCreateRequest(){
     this.router.navigate(['/create-request']);
+  }
+  getRequests(){
+    this.customerService.getCustomerRequests('3').subscribe((res) => {
+      this.requestList = res;
+      console.log(this.requestList);
+      
+    });
   }
 
 }

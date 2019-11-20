@@ -1,7 +1,7 @@
 <span>Cleaners Available</span>
 <mat-radio-group name="radio-button" [(ngModel)]="cleaner">
     <mat-radio-button *ngFor="let cleaner of cleanerList" class="example-radio-button"  [value]="cleaner">
-        {{cleaner}}
+        {{cleaner.name}}
     </mat-radio-button>
 </mat-radio-group>
 <div class="button-container">

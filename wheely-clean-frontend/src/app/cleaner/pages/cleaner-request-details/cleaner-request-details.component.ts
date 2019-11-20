@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WashRequest, WashType, RequestStatus } from 'src/app/core/models/wash-request';
+import { WashRequest, WashType, WashStatus } from 'src/app/core/models/wash-request';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class CleanerRequestDetailsComponent implements OnInit {
   defaultLatitude  = 45.4963778;
   defaultLongitude  = -73.5779553;
   mapType  = 'satellite';
-  status: RequestStatus;
+  status: WashStatus;
 
   constructor(private router: Router) { }
 
