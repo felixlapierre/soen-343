@@ -11,7 +11,7 @@ import { RequestHttpClientService } from 'src/app/core/services/request-http-cli
 })
 export class CustomerRequestCreateComponent implements OnInit {
 
-  request: WashRequest;
+
   // map info
   defaultLatitude = 45.4963778;
   defaultLongitude = -73.5779553;
@@ -56,24 +56,24 @@ export class CustomerRequestCreateComponent implements OnInit {
   }
 
   submit() {
-    this.request.carDetails.make = this.make;
-    this.request.carDetails.model = this.model;
-    this.request.carDetails.color = this.color;
-    this.request.carDetails.category = this.category;
-    this.request.carDetails.plateNumber = this.plateNumber;
-    this.request.carDetails.make = this.make;
-    this.request.customerAccountId = '3';
-    this.request.status = WashStatus.pending;
-    // this.request.time = this.time.toString();
-    this.request.location.latitude = this.markerLatitude;
-    this.request.location.longitude = this.markerLongitude;
-
-    console.log(this.type);
-    console.log(this.date);
-    console.log(this.time);
-
-    console.log(this.markerLatitude);
-    console.log(this.markerLongitude);
+    const request: WashRequest = {
+      carDetails: {
+        category: this.category,
+        color: this.color,
+        make: this.make,
+        model: this.model,
+        plateNumber: this.plateNumber
+      },
+      customerAccountId: '3',
+      location: {
+        latitude: this.markerLatitude,
+        longitude: this.markerLongitude
+      },
+      status: WashStatus.pending,
+      washType: this.type,
+      time: new Date()
+    };
+    console.log(request);
     console.log('submit! needs connection to backend');
   }
 
