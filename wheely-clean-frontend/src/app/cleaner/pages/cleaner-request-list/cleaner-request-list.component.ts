@@ -10,8 +10,8 @@ export class CleanerRequestListComponent implements OnInit {
   requestList: Array<WashRequest> = [{
     id: '3123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.ACCEPTED,
-    washType: WashType.GOLD,
+    status: RequestStatus.accepted,
+    washType: WashType.gold,
     time: new Date(),
     carDetails: {
       category: 'Sedan',
@@ -24,8 +24,8 @@ export class CleanerRequestListComponent implements OnInit {
   {
     id: '3123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.CANCELLED,
-    washType: WashType.BRONZE,
+    status: RequestStatus.cancelled,
+    washType: WashType.bronze,
     time: new Date(),
     carDetails: {
       category: 'Sedan',
@@ -38,8 +38,8 @@ export class CleanerRequestListComponent implements OnInit {
   {
     id: '3123123',
     customerAccountId: '3424234234234',
-    status: RequestStatus.EN_ROUTE,
-    washType: WashType.SILVER,
+    status: RequestStatus.enRoute,
+    washType: WashType.silver,
     time: new Date(),
     carDetails: {
       category: 'Sedan',

@@ -16,6 +16,8 @@ import { CustomerModule } from './customer/customer.module';
 import { CleanerModule } from './cleaner/cleaner.module';
 import { AdminModule } from './admin/admin.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -33,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     CustomerModule,
     CleanerModule,
     AdminModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

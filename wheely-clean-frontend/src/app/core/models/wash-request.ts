@@ -8,18 +8,18 @@ export interface WashRequest {
     carDetails: CarDetails;
 }
 export enum RequestStatus {
-    PENDING = 'Pending',
-    ACCEPTED = 'Accepted',
-    EN_ROUTE = 'En Route',
-    IN_PROGRESS = 'In Progress',
-    CANCELLED = 'Cancelled',
-    COMPLETED = 'Completed',
+    pending = 'Pending',
+    accepted = 'Accepted',
+    enRoute = 'En Route',
+    inProgress = 'In Progress',
+    cancelled = 'Cancelled',
+    completed = 'Completed',
 }
 export enum WashType {
-    PLATINUM = 'Platinum',
-    GOLD = 'Gold',
-    SILVER = 'Silver',
-    BRONZE = 'Bronze',
+    platinum = 'Platinum',
+    gold = 'Gold',
+    silver = 'Silver',
+    bronze = 'Bronze',
 }
 export interface CarDetails {
     make: string;
@@ -27,4 +27,8 @@ export interface CarDetails {
     category: string;
     plateNumber: string;
     color: string;
+}
+export interface Location {
+    longitude: string;
+    latitude: string;
 }

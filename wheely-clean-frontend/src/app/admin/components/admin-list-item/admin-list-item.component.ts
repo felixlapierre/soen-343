@@ -15,6 +15,9 @@ export class AdminListItemComponent implements OnInit {
   icon: string;
   time: string;
   cleanerList = ['Thomas Gauvin', 'Lara Tran'];
+
+
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
