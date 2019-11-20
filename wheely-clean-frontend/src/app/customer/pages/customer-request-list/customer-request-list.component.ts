@@ -12,49 +12,49 @@ export class CustomerRequestListComponent implements OnInit {
 
 
 
-  requestList: Array<WashRequest> = [{
-    id: '3123123123',
-    customerAccountId: '3424234234234',
-    status: WashStatus.accepted,
-    washType: WashType.bronze,
-    time: new Date(),
-    carDetails: {
-      category: 'Sedan',
-      color: 'blue',
-      make: 'Toyota',
-      model: 'Corolla',
-      plateNumber: 'HIHIHI'
-    }
-  },
-  {
-    id: '3123123123',
-    customerAccountId: '3424234234234',
-    status: WashStatus.cancelled,
-    washType: WashType.bronze,
-    time: new Date(),
-    carDetails: {
-      category: 'Sedan',
-      color: 'blue',
-      make: 'Toyota',
-      model: 'Corolla',
-      plateNumber: 'HIHIHI'
-    }
-  },
-  {
-    id: '3123123123',
-    customerAccountId: '3424234234234',
-    status: WashStatus.enRoute,
-    washType: WashType.bronze,
-    time: new Date(),
-    carDetails: {
-      category: 'Sedan',
-      color: 'blue',
-      make: 'Toyota',
-      model: 'Corolla',
-      plateNumber: 'HIHIHI'
-    }
-  }];
-
+  // requestList: Array<WashRequest> = [{
+  //   id: '3123123123',
+  //   customerAccountId: '3424234234234',
+  //   status: WashStatus.accepted,
+  //   washType: WashType.bronze,
+  //   time: new Date(),
+  //   carDetails: {
+  //     category: 'Sedan',
+  //     color: 'blue',
+  //     make: 'Toyota',
+  //     model: 'Corolla',
+  //     plateNumber: 'HIHIHI'
+  //   }
+  // },
+  // {
+  //   id: '3123123123',
+  //   customerAccountId: '3424234234234',
+  //   status: WashStatus.cancelled,
+  //   washType: WashType.bronze,
+  //   time: new Date(),
+  //   carDetails: {
+  //     category: 'Sedan',
+  //     color: 'blue',
+  //     make: 'Toyota',
+  //     model: 'Corolla',
+  //     plateNumber: 'HIHIHI'
+  //   }
+  // },
+  // {
+  //   id: '3123123123',
+  //   customerAccountId: '3424234234234',
+  //   status: WashStatus.enRoute,
+  //   washType: WashType.bronze,
+  //   time: new Date(),
+  //   carDetails: {
+  //     category: 'Sedan',
+  //     color: 'blue',
+  //     make: 'Toyota',
+  //     model: 'Corolla',
+  //     plateNumber: 'HIHIHI'
+  //   }
+  // }];
+requestList: Array<WashRequest>;
   constructor(private router: Router, private customerService: CustomerHttpClientService) { }
 
   ngOnInit() {

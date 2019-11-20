@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { WashType } from '../../../core/models/wash-request';
+import { WashType, WashRequest, WashStatus } from '../../../core/models/wash-request';
 import { FdDate } from '@fundamental-ngx/core';
+import { RequestHttpClientService } from 'src/app/core/services/request-http-client.service';
 
 @Component({
   selector: 'app-customer-request-create',
@@ -9,41 +10,43 @@ import { FdDate } from '@fundamental-ngx/core';
   styleUrls: ['./customer-request-create.component.scss']
 })
 export class CustomerRequestCreateComponent implements OnInit {
-  
 
-  //map info
-  defaultLatitude : Number = 45.4963778;
-  defaultLongitude : Number = -73.5779553;
-  mapType : String = 'satellite';
+  request: WashRequest;
+  // map info
+  defaultLatitude = 45.4963778;
+  defaultLongitude = -73.5779553;
+  mapType = 'satellite';
 
-  //map marker info
-  markerLatitude : Number = null;
-  markerLongitude : Number = null;
+  // map marker info
+  markerLatitude = null;
+  markerLongitude = null;
 
-  //car info
-  make : String = null;
-  model : String = null;
-  color : String = null;
+  // car info
+  make: string = null;
+  model: string = null;
+  color: string = null;
+  category: string = null;
+  plateNumber: string = null;
 
   //wash info
-  type : WashType = null;
-  typeKeys() : Array<string> {
+  type: WashType = null;
+  typeKeys(): Array<string> {
     var keys = Object.values(WashType);
     return keys;
   }
   date = FdDate.getToday();
-  time : Object = {
+  time: Object = {
     hour: 12,
     minute: 0,
     second: 0
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private requestService: RequestHttpClientService) { }
 
   ngOnInit() {
   }
 
-  closeCreateRequest(){
+  closeCreateRequest() {
     this.router.navigate(['/customer']);
   }
 
@@ -52,10 +55,19 @@ export class CustomerRequestCreateComponent implements OnInit {
     this.markerLongitude = lng;
   }
 
-  submit(){
-    console.log(this.make);
-    console.log(this.model);
-    console.log(this.color);
+  submit() {
+    this.request.carDetails.make = this.make;
+    this.request.carDetails.model = this.model;
+    this.request.carDetails.color = this.color;
+    this.request.carDetails.category = this.category;
+    this.request.carDetails.plateNumber = this.plateNumber;
+    this.request.carDetails.make = this.make;
+    this.request.customerAccountId = '3';
+    this.request.status = WashStatus.pending;
+    // this.request.time = this.time.toString();
+    this.request.location.latitude = this.markerLatitude;
+    this.request.location.longitude = this.markerLongitude;
+
     console.log(this.type);
     console.log(this.date);
     console.log(this.time);

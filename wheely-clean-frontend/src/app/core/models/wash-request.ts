@@ -6,6 +6,7 @@ export interface WashRequest {
     time: Date;
     cleanerAccountId?: string;
     carDetails: CarDetails;
+    location: Location;
 }
 export enum WashStatus {
     pending = 'pending',
