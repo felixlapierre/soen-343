@@ -80,7 +80,7 @@ $wheely-clean-palette-accent: (
 
 
 $angular-app-primary: mat-palette($wheely-clean-palette);
-$angular-app-accent: mat-palette($wheely-clean-palette-accent);
+$angular-app-accent: mat-palette($wheely-clean-palette-accent, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $angular-app-warn: mat-palette($mat-red);
