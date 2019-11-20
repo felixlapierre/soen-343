@@ -18,9 +18,13 @@ export class AssignWashDialogComponent implements OnInit {
   cleaner: string;
   ngOnInit() {
     this.cleanerList = this.data.list;
+    this.cleaner = this.cleanerList[0];
   }
-  close(){
+  close() {
     this.dialogRef.close();
+  }
+  submit() {
+    this.dialogRef.close(this.cleaner);
   }
 
 }

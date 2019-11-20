@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { AssignWashDialogComponent } from './components/assign-wash-dialog/assign-wash-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -23,7 +25,8 @@ import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule
   ], entryComponents: [AssignWashDialogComponent],
   providers: [{
     provide: MAT_RADIO_DEFAULT_OPTIONS,
