@@ -44,9 +44,11 @@ SOEN343 - Software Design 1 - Team Project
 - To verify that Node.js is installed, open a terminal and enter the command "npm -v"
 - Add a 'env.js' file to the src folder of wheely-clean-frontend folder
 - Example env.js file:
-    ``` export const APIKey = 'api_key;
+    ``` 
+        export const APIKey = 'api_key';
         export const CUSTOMER_ID = 'customer_id';
-        export const CLEANER_ID = 'cleaner_id';```
+        export const CLEANER_ID = 'cleaner_id';
+    ```
 ### Starting the server
 - Open a separate terminal in the wheely-clean-frontend folder
 - Enter the command "npm i"
