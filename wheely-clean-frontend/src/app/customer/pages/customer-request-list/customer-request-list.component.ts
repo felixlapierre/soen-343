@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WashRequest, WashStatus, WashType } from 'src/app/core/models/wash-request';
 import { Router } from '@angular/router';
 import { CustomerHttpClientService } from 'src/app/core/services/customer-http-client.service';
+import { CUSTOMER_ID } from '../../../../env.js';
 
 @Component({
   selector: 'app-customer-request-list',
@@ -10,51 +11,7 @@ import { CustomerHttpClientService } from 'src/app/core/services/customer-http-c
 })
 export class CustomerRequestListComponent implements OnInit {
 
-
-
-  // requestList: Array<WashRequest> = [{
-  //   id: '3123123123',
-  //   customerAccountId: '3424234234234',
-  //   status: WashStatus.accepted,
-  //   washType: WashType.bronze,
-  //   time: new Date(),
-  //   carDetails: {
-  //     category: 'Sedan',
-  //     color: 'blue',
-  //     make: 'Toyota',
-  //     model: 'Corolla',
-  //     plateNumber: 'HIHIHI'
-  //   }
-  // },
-  // {
-  //   id: '3123123123',
-  //   customerAccountId: '3424234234234',
-  //   status: WashStatus.cancelled,
-  //   washType: WashType.bronze,
-  //   time: new Date(),
-  //   carDetails: {
-  //     category: 'Sedan',
-  //     color: 'blue',
-  //     make: 'Toyota',
-  //     model: 'Corolla',
-  //     plateNumber: 'HIHIHI'
-  //   }
-  // },
-  // {
-  //   id: '3123123123',
-  //   customerAccountId: '3424234234234',
-  //   status: WashStatus.enRoute,
-  //   washType: WashType.bronze,
-  //   time: new Date(),
-  //   carDetails: {
-  //     category: 'Sedan',
-  //     color: 'blue',
-  //     make: 'Toyota',
-  //     model: 'Corolla',
-  //     plateNumber: 'HIHIHI'
-  //   }
-  // }];
-requestList: Array<WashRequest>;
+  requestList: Array<WashRequest>;
   constructor(private router: Router, private customerService: CustomerHttpClientService) { }
 
   ngOnInit() {
@@ -62,14 +19,20 @@ requestList: Array<WashRequest>;
   }
 
   openCreateRequest(){
-    this.router.navigate(['/create-request']);
+    this.router.navigate(['/customer/create-request']);
   }
+
+  openWashDetails(washId){
+    this.router.navigate([`/customer/create-request/${washId}`]);
+  }
+
+  goHome(){
+    this.router.navigate(['/']);
+  }
+
   getRequests(){
-    this.customerService.getCustomerRequests('2').subscribe((res) => {
-      console.log(res);
+    this.customerService.getCustomerRequestsForCustomerId(CUSTOMER_ID).subscribe((res) => {
       this.requestList = res;
-      console.log(this.requestList);
-      
     });
   }
 

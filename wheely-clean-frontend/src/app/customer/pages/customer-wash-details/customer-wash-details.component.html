@@ -1,20 +1,18 @@
 <mat-toolbar color="grey">
     <mat-toolbar-row>
-        <button mat-icon-button color="secondary" (click)="closeWashDetails()">
-            <mat-icon>close</mat-icon>
-        </button>
-        <span style="padding-left:10px;">Wash Information - ID: {{request.id}}</span>
+        <button mat-icon-button color="secondary" (click)="closeWashDetails()"><mat-icon>close</mat-icon></button>
+        <span style="padding-left:10px;">Wash Information - ID {{ washId }}</span>
     </mat-toolbar-row>
 </mat-toolbar>
+
 <div class="container">
     <h3>Status</h3>
-    <mat-form-field>
-        <mat-select placeholder="{{status}}" [(value)]="status" #selectStatus>
-            <mat-option *ngFor="let status of statuses" [value]="status.value">
-                {{status.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+    <div class = "statusIndicator">
+        <mat-icon mat-list-icon [ngClass]="{'pink': color=== 'pink', 'green': color=== 'green', 'red': color === 'red', 'grey': color=== 'grey', 'blue': color=== 'blue'}">{{icon}}</mat-icon>
+        <h4 mat-line [ngClass]="{'pink': color=== 'pink', 'green': color=== 'green', 'red': color === 'red', 'grey': color=== 'grey', 'blue': color=== 'blue'}">{{request.status | uppercase}}</h4>
+        
+    </div>
+
     <h3>Car Information</h3>
     <div class="carInformation">
         <div class="info">
@@ -54,5 +52,10 @@
             </agm-marker>
         </agm-map>
     </div>
-    <button mat-raised-button color="primary" (click)="save()" buttons>Save</button>
+
+    <div class="submit-buttons" *ngIf="requestPending()">
+        <button mat-button style="color: red;" (click)="cancelWash()" buttons>Cancel Wash</button>
+    </div>
+
+    <br />
 </div>
