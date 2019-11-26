@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package app.washrequest;
+package app.request.impl;
 
-import app.InvalidIdException;
-import app.cleaner.Cleaner;
-import app.cleaner.CleanerRepository;
-import app.customer.Customer;
-import app.customer.CustomerRepository;
+import app.utils.InvalidIdException;
+import app.account.cleaner.Cleaner;
+import app.account.cleaner.CleanerRepository;
+import app.account.customer.Customer;
+import app.account.customer.CustomerRepository;
+import app.request.WashRequest;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +16,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import app.request.IRequestController;
+import app.request.WashRequestRepository;
 
 /**
  *
  * @author Felix
  */
 @RestController
-public class WashRequestController {
+public class RequestController implements IRequestController {
     @Autowired
     private WashRequestRepository repository;
     

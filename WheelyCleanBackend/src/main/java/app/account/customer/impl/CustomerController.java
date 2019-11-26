@@ -1,7 +1,10 @@
-package app.customer;
+package app.account.customer.impl;
 
-import app.NoContentException;
-import app.washrequest.WashRequest;
+import app.utils.NoContentException;
+import app.account.customer.Customer;
+import app.account.customer.CustomerRepository;
+import app.account.customer.ICustomerController;
+import app.request.WashRequest;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CustomerController {
+public class CustomerController implements ICustomerController {
     @Autowired
     private CustomerRepository repository;
     

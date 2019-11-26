@@ -1,4 +1,4 @@
-package app.washrequest;
+package app.request;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

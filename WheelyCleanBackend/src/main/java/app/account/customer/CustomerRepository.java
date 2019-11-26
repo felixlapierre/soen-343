@@ -1,4 +1,4 @@
-package app.customer;
+package app.account.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

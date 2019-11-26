@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.washrequest;
+package app.request;
 
-import app.cleaner.Cleaner;
-import app.customer.Customer;
+import app.account.cleaner.Cleaner;
+import app.account.customer.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;

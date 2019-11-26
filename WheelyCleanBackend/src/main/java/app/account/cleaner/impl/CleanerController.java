@@ -1,13 +1,15 @@
-package app.cleaner;
+package app.account.cleaner.impl;
 
-import app.NoContentException;
-import app.cleaner.Cleaner;
+import app.utils.NoContentException;
+import app.account.cleaner.Cleaner;
+import app.account.cleaner.CleanerRepository;
+import app.account.cleaner.ICleanerController;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import app.washrequest.WashRequest;
+import app.request.WashRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CleanerController {
+public class CleanerController implements ICleanerController {
     @Autowired
     private CleanerRepository repository;
     
