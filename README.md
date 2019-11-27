@@ -40,7 +40,8 @@ SOEN343 - Software Design 1 - Team Project
 ## How to setup Frontend
 ### Prereqs
 - Install Node.js (comes with npm)
-- To verify that Node.js is installed, open a terminal and enter the command "node -v" or "npm -v"
+- To verify that Node.js is installed, open a terminal and enter the command "node -v".
+- To verify that npm is installed, open a terminal and enter the command "npm -v"
 - Add a 'env.js' file to the src folder of wheely-clean-frontend folder
 - Example env.js file:
     ``` 
