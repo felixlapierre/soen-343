@@ -25,7 +25,7 @@ SOEN343 - Software Design 1 - Team Project
   - Make sure to remember the password that you select for your admin user.
 - Open pgAdmin
 - In pgAdmin, Go to Servers -> PostgreSQL -> Databases, right click on Databases, and select Create -> Database
-  - Is is recommended you name your database `wheelyclean`
+  - It is recommended you name your database `wheelyclean`
 - Close pgAdmin
 - Open the folder at `WheelyCleanBackend/src/main/resources`
 - Create a copy of the file `application.properties.example` and rename it to `application.properties`
@@ -40,8 +40,7 @@ SOEN343 - Software Design 1 - Team Project
 ## How to setup Frontend
 ### Prereqs
 - Install Node.js (comes with npm)
-- To verify that Node.js is installed, open a terminal and enter the command "node -v"
-- To verify that Node.js is installed, open a terminal and enter the command "npm -v"
+- To verify that Node.js is installed, open a terminal and enter the command "node -v" or "npm -v"
 - Add a 'env.js' file to the src folder of wheely-clean-frontend folder
 - Example env.js file:
     ``` 
