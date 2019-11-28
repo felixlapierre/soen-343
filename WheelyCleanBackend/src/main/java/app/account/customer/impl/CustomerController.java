@@ -17,9 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CustomerController implements ICustomerController {
+    private final CustomerRepository repository;
+
     @Autowired
-    private CustomerRepository repository;
-    
+    public CustomerController(CustomerRepository repository) {
+        this.repository = repository;
+    }
+
     @PostMapping("/customer")
     public @ResponseBody Customer addNewCustomer(@RequestBody Customer customer) {
         repository.save(customer);

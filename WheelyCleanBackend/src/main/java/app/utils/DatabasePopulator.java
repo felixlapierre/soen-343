@@ -14,12 +14,16 @@ import org.springframework.stereotype.Component;
  */
 @Component("databasePopulator")
 public class DatabasePopulator {
-    @Autowired
-    private CustomerRepository customers;
+    private final CustomerRepository customers;
     
+    private final CleanerRepository cleaners;
+
     @Autowired
-    private CleanerRepository cleaners;
-    
+    public DatabasePopulator(CustomerRepository customers, CleanerRepository cleaners) {
+        this.customers = customers;
+        this.cleaners = cleaners;
+    }
+
     public void ensureCustomerExists() {
         List<Customer> existingCustomers = customers.findAll();
         if(existingCustomers.isEmpty()) {
