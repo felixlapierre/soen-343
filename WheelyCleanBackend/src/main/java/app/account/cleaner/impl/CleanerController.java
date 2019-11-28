@@ -20,15 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CleanerController implements ICleanerController {
+    private final CleanerRepository repository;
+
     @Autowired
-    private CleanerRepository repository;
-    
+    public CleanerController(CleanerRepository repository) {
+        this.repository = repository;
+    }
+
     @PostMapping("/cleaner")
     public @ResponseBody Cleaner addNewCleaner(@RequestBody Cleaner cleaner) {
         repository.save(cleaner);
         return cleaner;
     }
-    
+
     @GetMapping("/cleaner")
     public @ResponseBody Cleaner getCleanerById(@RequestParam int id) {
         Optional<Cleaner> result = repository.findById(id);

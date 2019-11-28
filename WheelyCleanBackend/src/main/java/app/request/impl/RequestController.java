@@ -25,26 +25,30 @@ import app.request.WashRequestRepository;
  */
 @RestController
 public class RequestController implements IRequestController {
+    private final WashRequestRepository repository;
+
+    private final CustomerRepository customerRep;
+
+    private final CleanerRepository cleanerRep;
+
     @Autowired
-    private WashRequestRepository repository;
-    
-    @Autowired
-    private CustomerRepository customerRep;
-    
-    @Autowired
-    private CleanerRepository cleanerRep;
-    
+    public RequestController(WashRequestRepository repository, CustomerRepository customerRep, CleanerRepository cleanerRep) {
+        this.repository = repository;
+        this.customerRep = customerRep;
+        this.cleanerRep = cleanerRep;
+    }
+
     @PostMapping("/request")
     public @ResponseBody WashRequest addNewWashRequest(
             @RequestBody WashRequest washRequest
     ) {
         validateCustomerId(washRequest);
         validateCleanerId(washRequest);
-        
+
         repository.save(washRequest);
         return washRequest;
     }
-    
+
     @PutMapping("/request")
     public @ResponseBody WashRequest updateRequest(
         @RequestBody WashRequest washRequest) {
@@ -53,7 +57,7 @@ public class RequestController implements IRequestController {
         repository.save(washRequest);
         return washRequest;
     }
-    
+
     @GetMapping("/request")
     public @ResponseBody WashRequest getWashRequestById(
             @RequestParam int id
@@ -65,13 +69,13 @@ public class RequestController implements IRequestController {
             throw new InvalidIdException("washRequest", id);
         }
     }
-    
+
     @GetMapping("/request/all")
     public @ResponseBody List<WashRequest> getAllWashRequests()
     {
         return repository.findAll();
     }
-    
+
     private void validateCustomerId(WashRequest req) {
         Integer customerAccountId = req.getCustomerAccountId();
         Optional<Customer> owner = customerRep.findById(customerAccountId);
@@ -81,7 +85,7 @@ public class RequestController implements IRequestController {
             throw new InvalidIdException("customer", customerAccountId);
         }
     }
-    
+
     private void validateCleanerId(WashRequest req) {
         Integer cleanerAccountId = req.getCleanerAccountId();
         if(cleanerAccountId != null) {

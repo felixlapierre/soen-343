@@ -37,6 +37,10 @@ SOEN343 - Software Design 1 - Team Project
 - Open a terminal in the WheelyCleanBackend folder
 - Enter the command "run.bat". It will build and run the backend server on port 8080. You can check that the server has started correctly by heading to localhost:8080/greeting
 
+### Running the tests
+- Open a terminal in the WheelyCleanBackend folder
+- Enter command "gradle clean test"
+
 ## How to setup Frontend
 ### Prereqs
 - Install Node.js (comes with npm)
