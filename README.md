@@ -50,9 +50,10 @@ SOEN343 - Software Design 1 - Team Project
 - Example env.js file:
     ``` 
         export const APIKey = 'api_key';
-        export const CUSTOMER_ID = 'customer_id';
-        export const CLEANER_ID = 'cleaner_id';
+        export const CUSTOMER_ID = '4';
+        export const CLEANER_ID = '1';
     ```
+    where api_key is a google Places API key (https://developers.google.com/places/web-service/get-api-key)
 ### Starting the server
 - Open a separate terminal in the wheely-clean-frontend folder
 - Enter the command "npm i"
